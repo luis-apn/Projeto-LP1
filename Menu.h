@@ -53,8 +53,9 @@ public:
       if (op == 7) {
         cout << "\n\nFINALIZANDO...";
         break;
-      
+        }
     }
   }
+}
 };
 
