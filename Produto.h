@@ -20,8 +20,14 @@ public:
     produto.erase();
 
   }
-  Produto(std::string tipo, std::string produto, int qtd, float preco, int)
-      : tipo(tipo), produto(produto), qtd(qtd), preco(preco) {}
+  Produto(std::string tipo, std::string produto, int qtd, float preco, int codigo){
+    this->tipo = tipo;
+    this->produto = produto;
+    this->codigo = codigo;
+    this->preco = preco;
+    this->qtd = qtd;
+  }
+     
   
   //Metodos set para os Produtos
   void setTipo(std::string tipo) { this->tipo = tipo; }

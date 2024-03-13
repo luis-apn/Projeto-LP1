@@ -7,42 +7,61 @@
 class Estoque : public Mercado {
 protected:
   Produto p[MAX_PRODUTOS];
-  int temp = 1;
+
 public:
   void cadastro();
   void listarProdutos();
-  //void qtdProdutos(); //Exibe a quantidade de produtos por nome  
   void alterarProduto();
   void removerProduto();
-  void setarCodigo(int cod);
 
 };
 
-//CADASTRO DOS PRODUTOS -  Mudar a condicao de cadastro para cadastra apenas produtos que estao zerados
+//CADASTRO DOS PRODUTOS - Realiza um cadastro por vez
 void Estoque::cadastro() {
 
   string tipo, produto;
   float preco;
-  int qtd, codigo;
+  int qtd, codigo, v_controle = 0;
   
   // Cadastro dos produtos
-  cout << "Digite o tipo do produto(limpeza, comida, bebida): ";
-  cin.ignore();
-  getline(cin, tipo);
-  cout << "Digite o nome do produto: ";
-  getline(cin, produto);
-  cout << "Digite a quantidade do produto: ";
-  cin >> qtd;
-  cout << "Digite o preco do produto: ";
-  cin >> preco;
-  cout << "Digite o codigo do produto: ";
-  cin.ignore();
-  cin >> codigo;
+  for(int i=0; i<MAX_PRODUTOS; i++){ 
+    //Caso o valor esteja zerado, significa que o produto n foi cadastrado
+    if( p[i].getPreco() == 0){
+      cout <<"\n--------------CADASTRO--------------\n";
+      cout << "Digite o tipo do produto(limpeza, comida, bebida): ";
+      cin.ignore();
+      getline(cin, tipo);
+      cout << "Digite o nome do produto: ";
+      getline(cin, produto);
+      cout << "Digite a quantidade do produto: ";
+      cin >> qtd;
+      cout << "Digite o preco do produto: ";
+      cin >> preco;
+      cout << "Digite o codigo do produto: ";
+      cin >> codigo;
+      
+      //Essa condicao de teste para o a existencia de codigos repetidos precisa ser melhor desenvolvida
+      /*while (true){
+        for(int j=0; j<MAX_PRODUTOS; j++){
+          if((p[j].getCodigo() != 0) && (p[j].getCodigo() ==  codigo)) {
+            cout << "Codigo digitado ja foi cadastrado, por favor, insira um novo codigo: ";
+            cin >> codigo;
+          }
+          else
+            v_controle = 1;
+        }
+        //Condicao de saida do teste
+        if(v_controle == 1)
+          break;
+      }*/
 
-  // Criando um objeto Produto com os dados fornecidos
-  p[temp] = Produto(tipo, produto, qtd, preco, codigo);
-  temp++;
+      //Cadastro do produto
+      p[i] = Produto(tipo, produto, qtd, preco, codigo);
+      break;
+    }
+  }
 }
+
 
 //Exibe todos os produtos de todos os tipos
 void Estoque::listarProdutos(){
@@ -59,7 +78,7 @@ void Estoque::listarProdutos(){
 
         for(int i=0; i<MAX_PRODUTOS; i++){
           if(p[i].getCodigo() == codigo){ 
-            cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
+            cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
             controle = 1;
           }
         }
@@ -73,7 +92,7 @@ void Estoque::listarProdutos(){
       getline(cin, tipo);
       for(int i=0; i< MAX_PRODUTOS; i++){
         if(p[i].getTipo().find(tipo) != -1){ 
-          cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
+          cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
           controle = 1;
         }
       }
@@ -83,8 +102,13 @@ void Estoque::listarProdutos(){
 
     case 3:
       cout << "\n\n------------PRODUTOS CADASTRADOS------------\n";
-      for(int i=0; i<temp; i++){ 
-        cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
+      for(int i=0; i<MAX_PRODUTOS; i++){
+        
+        //Exibe todos os produtos que possuem preco diferente de zero e exibe
+        if(p[i].getPreco() != 0){ 
+        cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
+
+        }
       }
       break;
     

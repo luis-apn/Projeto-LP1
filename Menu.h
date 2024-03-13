@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Caixa.h"
-using namespace std;
+/*using namespace std;
 
 #pragma once
 
@@ -57,5 +57,5 @@ public:
     }
   }
 }
-};
+};*/
 
