@@ -24,10 +24,16 @@ public:
         std::cin >> num;
         std::cout << (num * preco);
         std::cout << "Valor: R$" <<(num * preco);
-        if (num <= qtd) {
+        if (num <= qtd) { 
           qtd -= num;
           //nao sei o motivo de estar alertando erro, log deveria ser o local do arquivo a noite vemos como resolver isso
-          log << "Compra no valor de: R$" << num * preco << " realizada\n";
+          if (log.is_open())
+          {
+            std::stringstream ss;
+            ss << "Compra no valor de: R$" << (float)num * (float)preco << " realizada\n";
+            log << ss.str();
+          }
+          
           p[i].setQtd(qtd);
         } else {
           std::cout << "Não temos estoque suficiente para essa quantidade";
