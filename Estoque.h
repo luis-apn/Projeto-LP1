@@ -24,7 +24,8 @@ void Estoque::cadastro() {
   int qtd, codigo, v_controle = 0;
   
   // Cadastro dos produtos
-  for(int i=0; i<MAX_PRODUTOS; i++){ 
+  //Eu acho que esse for não precisa ser aqui, se quiser pode fazer no menu um for que chama o metodo o numero de vezes que quiser!!
+  for(int i=0; i<MAX_PRODUTOS; i++){
     //Caso o valor esteja zerado, significa que o produto n foi cadastrado
     if( p[i].getPreco() == 0){
       cout <<"\n--------------CADASTRO--------------\n";
@@ -41,6 +42,19 @@ void Estoque::cadastro() {
       cin >> codigo;
       
       //Essa condicao de teste para o a existencia de codigos repetidos precisa ser melhor desenvolvida
+      
+        for (int i = 0; i < MAX_PRODUTOS; i++)
+        {
+          if (codigo != 0 && codigo == p[i].getCodigo()) {
+
+            cout << "Codigo invalido, por favor, insira um novo codigo: ";
+            cin >> codigo;
+            i = 0;
+          }
+        
+        }
+      
+
       /*while (true){
         for(int j=0; j<MAX_PRODUTOS; j++){
           if((p[j].getCodigo() != 0) && (p[j].getCodigo() ==  codigo)) {
