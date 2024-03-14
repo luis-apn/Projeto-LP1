@@ -10,6 +10,7 @@ public:
 
 //carrinho de compra
   float compra() {
+    std::ifstream log = openLog();
     int num;
     std::cout << "Digite o codigo do produto: ";
     int codigo;
@@ -23,14 +24,15 @@ public:
         std::cin >> num;
         std::cout << (num * preco);
         std::cout << "Valor: R$" <<(num * preco);
-        if (num < qtd) {
+        if (num <= qtd) {
           qtd -= num;
+          //nao sei o motivo de estar alertando erro, log deveria ser o local do arquivo a noite vemos como resolver isso
+          log << "Compra no valor de: R$" << num * preco << " realizada\n";
           p[i].setQtd(qtd);
         } else {
           std::cout << "Não temos estoque suficiente para essa quantidade";
           return -1; //erro
         }
-        
       }
     }
   }

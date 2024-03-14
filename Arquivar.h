@@ -1,19 +1,24 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "Estoque.h"
 
 #pragma once
 //acho que estoque pode herdar de arquivo para poder usar os metodos na hora de inicializar o vetor
-class Arquivar : public Estoque
+class Arquivar
 {
 protected:
 
 public:
 //isso deve abrir o arquivo
-std::ifstream open(){
+std::ifstream openEstoque(){
     std::ifstream is;
-    is.open ("texto.txt", ios::in);
+    is.open("estoque.txt", ios::in);
+    //deve retornar o diretorio do arquivo que foi aberto
+    return is;
+}
+std::ifstream openLog(){
+    std::ifstream is;
+    is.open("log.txt", ios::in);
     //deve retornar o diretorio do arquivo que foi aberto
     return is;
 }
