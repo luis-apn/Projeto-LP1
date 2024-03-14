@@ -16,8 +16,8 @@ std::ifstream openEstoque(){
     //deve retornar o diretorio do arquivo que foi aberto
     return is;
 }
-std::ifstream openLog(){
-    std::ifstream is;
+std::ofstream openLog(){
+    std::ofstream is;
     is.open("log.txt", ios::in);
     //deve retornar o diretorio do arquivo que foi aberto
     return is;

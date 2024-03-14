@@ -10,7 +10,7 @@ public:
 
 //carrinho de compra
   float compra() {
-    std::ifstream log = openLog();
+    std::ofstream log = openLog();
     int num;
     std::cout << "Digite o codigo do produto: ";
     int codigo;
