@@ -44,14 +44,16 @@ void Estoque::cadastro() {
       cin >> codigo;
       
       //Essa condicao de teste para o a existencia de codigos repetidos precisa ser melhor desenvolvida
-      
+        
         for (int t = 0; t < MAX_PRODUTOS; t++)
         {
-          if ((codigo != 0 && codigo == p[t].getCodigo() || codigo == 0)) {
+          std:: cout << "codigo listado:"<< p[t].getCodigo() << " - indice:"<< t << std::endl;
+          if ((codigo != 0 && codigo == p[t].getCodigo()) || codigo == 0) {
 
             cout << "Codigo invalido, por favor, insira um novo codigo: ";
+            t = -1;
             cin >> codigo;
-            t = 0;
+            
           }
         }
       
