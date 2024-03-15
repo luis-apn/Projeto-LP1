@@ -10,7 +10,7 @@ public:
 
 //carrinho de compra
   float compra() {
-    std::ofstream log = openLog();
+    //std::ofstream log = openLog();
     int num;
     std::cout << "Digite o codigo do produto: ";
     int codigo;
@@ -27,12 +27,12 @@ public:
         if (num <= qtd) { 
           qtd -= num;
           //nao sei o motivo de estar alertando erro, log deveria ser o local do arquivo a noite vemos como resolver isso
-          if (log.is_open())
+          /*if (log.is_open())
           {
             std::stringstream ss;
             ss << "Compra no valor de: R$" << (float)num * (float)preco << " realizada\n";
             log << ss.str();
-          }
+          }*/
           
           p[i].setQtd(qtd);
         } else {

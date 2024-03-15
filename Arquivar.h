@@ -2,16 +2,17 @@
 #include <string>
 #include <fstream>
 
+using namespace std;
+
 #pragma once
 //acho que estoque pode herdar de arquivo para poder usar os metodos na hora de inicializar o vetor
-class Arquivar
-{
+class Arquivar{ 
 protected:
 
 public:
 //isso deve abrir o arquivo
-std::ifstream openEstoque(){
-    std::ifstream is;
+/*void  openEstoque(){
+    ifstream is;
     is.open("estoque.txt", ios::in);
     //deve retornar o diretorio do arquivo que foi aberto
     return is;
@@ -33,6 +34,12 @@ std::string linha(ifstream is){
 //fechar o arquivo
 void fclose(ifstream is){
     is.close();
-}
+}*/
+
+void  salvarEstoque();
 
 };
+
+//Salvar o estoque no arquivo - Metodo sobrescrito em Estoque
+void Arquivar::salvarEstoque(){
+}

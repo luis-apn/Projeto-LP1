@@ -2,10 +2,12 @@
 #include  "Produto.h"
 #include "Caixa.h"
 #include "Mercado.h"
+#include "Arquivar.h"
 
 int main() {
 
   Estoque registro;
+  Arquivar salvar;
 
   while (true) {
       int op;
@@ -38,6 +40,7 @@ int main() {
           
         
       case 7: 
+        registro.salvarEstoque();
         break;
 
       default:

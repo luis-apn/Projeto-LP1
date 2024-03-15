@@ -1,12 +1,12 @@
 #include "Mercado.h"
 #include "Produto.h"
 #include <string>
-#include <sstream>
+//#include <sstream>
 #include "Arquivar.h"
 #define MAX_PRODUTOS 100
 #pragma once
 //adicionei Estoque herdando de arquivar para chamar os metodos com mais facilidade, apesar de estarem publicos
-class Estoque : public Mercado, public Arquivar {
+class Estoque : public Mercado, public Arquivar{
 protected:
   Produto p[MAX_PRODUTOS];
 
@@ -15,6 +15,7 @@ public:
   void listarProdutos();
   void alterarProduto();
   void removerProduto();
+  void salvarEstoque();
 
 };
 
@@ -177,4 +178,26 @@ void Estoque::removerProduto(){
     cout << "CODIGO INSERIDO NAO POSSUI REGISTRO\n\n";
 }
 
-//Tem que alterar o recebimento da variavel codigo, pois n pode haver codigos repetidos
+void Estoque::salvarEstoque(){
+    ofstream estoque;
+    
+    //Abertura do arquivo para escrita 
+    estoque.open("Estoque.txt");
+
+    if(!estoque.is_open())
+        cout << "ERRO AO ABRIR O ESTOQUE!\n";
+    
+    //Enviando dados para o arquivo
+    for(int i=0; i < 100; i++){
+        if(p[i].getCodigo() != 0){
+            estoque << p[i].getTipo() << endl;
+            estoque << p[i].getProduto() << endl;
+            estoque << p[i].getQtd() << endl;
+            estoque << p[i].getPreco() << endl;
+            estoque << p[i].getCodigo() << endl;
+        }
+        else
+            continue;
+    }
+    estoque.close();
+}
