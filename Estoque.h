@@ -23,7 +23,7 @@ void Estoque::cadastro() {
 
   string tipo, produto;
   float preco;
-  int qtd, codigo, v_controle = 0;
+  int qtd, codigo;
   
   // Cadastro dos produtos
   //Eu acho que esse for não precisa ser aqui, se quiser pode fazer no menu um for que chama o metodo o numero de vezes que quiser!!
@@ -45,17 +45,24 @@ void Estoque::cadastro() {
       
       //Essa condicao de teste para o a existencia de codigos repetidos precisa ser melhor desenvolvida
       
-        for (int t = 0; t < MAX_PRODUTOS; t++)
-        {
-          if ((codigo != 0 && codigo == p[t].getCodigo() || codigo == 0)) {
-
-            cout << "Codigo invalido, por favor, insira um novo codigo: ";
-            cin >> codigo;
-            t = 0;
+        for (int t = 0; t < MAX_PRODUTOS; t++){
+          int v_controle = 0;
+          if ((codigo != 0 && codigo == p[t].getCodigo()) || codigo == 0) {
+            while(true){ 
+              cout << "Codigo invalido, por favor, insira um novo codigo: ";
+              cin >> codigo;
+              if ((codigo != 0 && codigo == p[t].getCodigo()) || codigo == 0)
+                continue;
+              else{
+                v_controle++;
+                break;
+              }
+            }
           }
+          if(v_controle == 1)
+            break;
         }
       
-
       /*while (true){
         for(int j=0; j<MAX_PRODUTOS; j++){
           if((p[j].getCodigo() != 0) && (p[j].getCodigo() ==  codigo)) {
@@ -77,15 +84,15 @@ void Estoque::cadastro() {
   }
 }
 
-
 //Exibe todos os produtos de todos os tipos
 void Estoque::listarProdutos(){
   int op, codigo, controle = 0;
   string tipo;
+  cout << "\n------------------EXIBIR PRODUTOS------------------\n";
   cout << "(1) - Exibir produto por codigo\n(2) - Exibir produto por tipo\n(3) - Exibir todos os produtos\nDigite a opcao desejada: ";
   cin >> op;
+  
   switch(op){
-    
     //Exibe o produto por codigo
     case 1:
         cout << "Digite o codigo do produto dejado: ";
@@ -181,6 +188,7 @@ void Estoque::removerProduto(){
 
       //Chamada do construtor vazio para limpar o conteudo do produto
       p[i] = Produto();
+      controle++;
     }
     else
       continue;
