@@ -47,11 +47,10 @@ void Estoque::cadastro() {
         
         for (int t = 0; t < MAX_PRODUTOS; t++)
         {
-          std:: cout << "codigo listado:"<< p[t].getCodigo() << " - indice:"<< t << std::endl;
           if ((codigo != 0 && codigo == p[t].getCodigo()) || codigo == 0) {
 
             cout << "Codigo invalido, por favor, insira um novo codigo: ";
-            t = -1;
+            t = - 1;
             cin >> codigo;
             
           }
