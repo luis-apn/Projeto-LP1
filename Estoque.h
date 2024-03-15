@@ -1,6 +1,7 @@
 #include "Mercado.h"
 #include "Produto.h"
 #include <string>
+#include <sstream>
 #include "Arquivar.h"
 #define MAX_PRODUTOS 100
 #pragma once
@@ -44,15 +45,14 @@ void Estoque::cadastro() {
       
       //Essa condicao de teste para o a existencia de codigos repetidos precisa ser melhor desenvolvida
       
-        for (int i = 0; i < MAX_PRODUTOS; i++)
+        for (int t = 0; t < MAX_PRODUTOS; t++)
         {
-          if (codigo != 0 && codigo == p[i].getCodigo()) {
+          if ((codigo != 0 && codigo == p[t].getCodigo() || codigo == 0)) {
 
             cout << "Codigo invalido, por favor, insira um novo codigo: ";
             cin >> codigo;
-            i = 0;
+            t = 0;
           }
-        
         }
       
 
