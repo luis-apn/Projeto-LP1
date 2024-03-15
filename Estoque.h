@@ -55,20 +55,6 @@ void Estoque::cadastro() {
             
           }
         }
-      
-      /*while (true){
-        for(int j=0; j<MAX_PRODUTOS; j++){
-          if((p[j].getCodigo() != 0) && (p[j].getCodigo() ==  codigo)) {
-            cout << "Codigo digitado ja foi cadastrado, por favor, insira um novo codigo: ";
-            cin >> codigo;
-          }
-          else
-            v_controle = 1;
-        }
-        //Condicao de saida do teste
-        if(v_controle == 1)
-          break;
-      }*/
 
       //Cadastro do produto
       p[i] = Produto(tipo, produto, qtd, preco, codigo);
