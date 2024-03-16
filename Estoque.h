@@ -201,3 +201,30 @@ void Estoque::salvarEstoque(){
     }
     estoque.close();
 }
+
+//LER OS DADOS CONTIDOS NO ARQUIVO E INSERE DENTRO DAS VARIAVEIS DOS PRODUTOS
+void Estoque::aberturaArquivo(){
+  ifstream abertura;
+  int i=0, qtd, codigo;
+  float preco;
+  string produto, tipo;
+
+  //Abertura do arquivo para leitura
+  abertura.open("Estoque.txt");
+
+  if(abertura.is_open()){
+    while (!abertura.eof()){
+      getline(abertura, tipo);
+      getline(abertura, produto);
+      abertura >> qtd;
+      abertura >> preco;
+      abertura >> codigo;
+      p[i] = Produto(tipo, produto, qtd, preco, codigo);
+      i++;
+    }
+  }
+  else
+    cout << "ERRO AO ABRIR O ARQUIVO\n";
+    
+  abertura.close();
+}
