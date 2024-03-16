@@ -11,6 +11,7 @@ protected:
 
 public:
 void  salvarEstoque();
+
 void salvarlog(std::string s){
       ofstream log;
       
@@ -20,6 +21,7 @@ void salvarlog(std::string s){
       if(!log.is_open())
           cout << "ERRO AO ABRIR O LOG!\n";
       else{
+        
         log << s << endl;
         log.close();
       }
