@@ -16,6 +16,7 @@ public:
   void alterarProduto();
   void removerProduto();
   void salvarEstoque();
+  void aberturaArquivo();
 
 };
 
