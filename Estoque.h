@@ -69,7 +69,7 @@ void Estoque::cadastro() {
   }
 }
 
-//Exibe todos os produtos de todos os tipos
+//Exibe todos os produtos de todos os tipos - MELHORAR A EXIBICAO DE CADA PRODUTO
 void Estoque::listarProdutos(){
   int op, codigo, controle = 0;
   string tipo;
@@ -192,6 +192,7 @@ void Estoque::removerProduto(){
 
       //Chamada do construtor vazio para limpar o conteudo do produto
       p[i] = Produto();
+      cout << "PRODUTO REMOVIDO COM SUCESSO!\n";
       stringstream ss;
       ss << "foi removido o porduto de codigo: " << codigo;
       salvarlog(ss.str());
@@ -205,53 +206,70 @@ void Estoque::removerProduto(){
     cout << "CODIGO INSERIDO NAO POSSUI REGISTRO\n\n";
 }
 
+//SALVA OS PRODUTOS QUE ESTAO NA MEMORIA NO ARQUIVO DO ESTOQUE
 void Estoque::salvarEstoque(){
-    ofstream estoque;
-    
-    //Abertura do arquivo para escrita 
-    estoque.open("Estoque.txt");
+  ofstream estoque;
+  int total = 0;
 
-    if(!estoque.is_open())
+    //Abertura do arquivo para escrita 
+  estoque.open("Estoque.txt");
+
+  if(!estoque.is_open())
         cout << "ERRO AO ABRIR O ESTOQUE!\n";
     
-    //Enviando dados para o arquivo
-    for(int i=0; i < 100; i++){
-        if(p[i].getCodigo() != 0){
-            estoque << p[i].getTipo() << endl;
-            estoque << p[i].getProduto() << endl;
-            estoque << p[i].getQtd() << endl;
-            estoque << p[i].getPreco() << endl;
-            estoque << p[i].getCodigo() << endl;
-        }
-        else
-            continue;
+    //Contagem de produtos cadastrados
+  for(int i=0; i < MAX_PRODUTOS; i++)
+    if(p[i].getCodigo() != 0 ) 
+      total++;
+
+  //MANDANDO PARA O ESTOQUE O TOTAL DE PRODUTOS CADASTRADOS
+  estoque << total << endl;
+
+  //CADASTRO DOS PRODUTOS
+  for(int i=0; i< MAX_PRODUTOS; i++){ 
+    if(p[i].getCodigo() > 0){
+      estoque << p[i].getTipo() << endl;
+      estoque << p[i].getProduto() << endl;
+      estoque << p[i].getQtd() << endl;
+      estoque << p[i].getPreco() << endl;
+      estoque << p[i].getCodigo() << endl;
     }
-    estoque.close();
+    else
+      continue;
+  }
+
+  estoque.close();
 }
 
 //LER OS DADOS CONTIDOS NO ARQUIVO E INSERE DENTRO DAS VARIAVEIS DOS PRODUTOS
 void Estoque::aberturaArquivo(){
   ifstream abertura;
-  int i=0, qtd, codigo;
+  int i=0, qtd, codigo, total = 0;
   float preco;
   string produto, tipo;
 
   //Abertura do arquivo para leitura
   abertura.open("Estoque.txt");
 
-  if(abertura.is_open()){
+  if(!abertura.is_open())
+    cout << "ERRO AO ABRIR O ARQUIVO\n";
+  
+  abertura >> total;
+  abertura.ignore();
+  
+  if(total > 0){ 
     while (!abertura.eof()){
       getline(abertura, tipo);
       getline(abertura, produto);
       abertura >> qtd;
       abertura >> preco;
       abertura >> codigo;
+      abertura.ignore();
       p[i] = Produto(tipo, produto, qtd, preco, codigo);
-      i++;
+      i++; 
+      if(i == total)
+        break;
     }
   }
-  else
-    cout << "ERRO AO ABRIR O ARQUIVO\n";
-    
   abertura.close();
 }

@@ -9,6 +9,9 @@ int main() {
   Estoque registro;
   Arquivar salvar;
 
+  //ABRE O ARQUIVO DO ESTOQUE E INICIALIZA AS POSICOES DO VETOR DE PROTUDOS
+  registro.aberturaArquivo();
+
   while (true) {
       int op;
       
