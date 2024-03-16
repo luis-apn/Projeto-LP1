@@ -60,6 +60,10 @@ void Estoque::cadastro() {
 
       //Cadastro do produto
       p[i] = Produto(tipo, produto, qtd, preco, codigo);
+
+      stringstream ss;
+      ss << "Foi adicionado: " << "Produto :" << produto << " - Quantidade: " << qtd << " - Preco: " << preco;
+      salvarlog(ss.str());
       break;
     }
   }
@@ -82,6 +86,9 @@ void Estoque::listarProdutos(){
         for(int i=0; i<MAX_PRODUTOS; i++){
           if(p[i].getCodigo() == codigo){ 
             cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
+            stringstream ss;
+            ss << "Foi exibido o produto: " << codigo;
+            salvarlog(ss.str());
             controle = 1;
           }
         }
@@ -97,6 +104,9 @@ void Estoque::listarProdutos(){
         if(p[i].getTipo().find(tipo) != -1){ 
           cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
           controle = 1;
+          stringstream ss;
+          ss << "Foi exibido os produto do tipo: " << tipo;
+          salvarlog(ss.str());
         }
       }
       if(controle == 0)
@@ -113,6 +123,14 @@ void Estoque::listarProdutos(){
 
         }
       }
+      for (int i = 0; i < 0; i++)
+      {
+        stringstream ss;
+        ss << "Foram exibidos todos os produtos ";
+        salvarlog(ss.str());
+      }
+      
+      
       break;
     
     default:
