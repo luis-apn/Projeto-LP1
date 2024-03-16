@@ -23,16 +23,12 @@ public:
         std::cout << "Digite o numero de produtos a serem comprados: ";
         std::cin >> num;
         std::cout << (num * preco);
-        std::cout << "Valor: R$" <<(num * preco);
+        std::cout << "Valor: R$ " <<(num * preco);
+        std::stringstream ss;
+        ss << "Valor: R$ " <<(num * preco);
+        salvarlog(ss.str());
         if (num <= qtd) { 
           qtd -= num;
-          //nao sei o motivo de estar alertando erro, log deveria ser o local do arquivo a noite vemos como resolver isso
-          /*if (log.is_open())
-          {
-            std::stringstream ss;
-            ss << "Compra no valor de: R$" << (float)num * (float)preco << " realizada\n";
-            log << ss.str();
-          }*/
           
           p[i].setQtd(qtd);
         } else {
@@ -41,5 +37,5 @@ public:
         }
       }
     }
-  }
+  }   
 };
