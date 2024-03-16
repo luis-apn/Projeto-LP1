@@ -10,36 +10,22 @@ class Arquivar{
 protected:
 
 public:
-//isso deve abrir o arquivo
-/*void  openEstoque(){
-    ifstream is;
-    is.open("estoque.txt", ios::in);
-    //deve retornar o diretorio do arquivo que foi aberto
-    return is;
-}
-std::ofstream openLog(){
-    std::ofstream is;
-    is.open("log.txt", ios::in);
-    //deve retornar o diretorio do arquivo que foi aberto
-    return is;
-}
-//como o arquivo ja foi aberto, para escrever dentro dele basta chamar o arquivo e escrever dentro
-
-//colocar isso dentro de um while (!ifstream.eof), dentro do metodo presente em estoque
-std::string linha(ifstream is){
-        std::string line;
-        std::getline(is, line);
-        return line;
-}
-//fechar o arquivo
-void fclose(ifstream is){
-    is.close();
-}*/
-
 void  salvarEstoque();
+void salvarlog(std::string s){
+      ofstream log;
+      
+      //Abertura do arquivo para escrita 
+      log.open("log.txt", ios::app);
+
+      if(!log.is_open())
+          cout << "ERRO AO ABRIR O LOG!\n";
+      else{
+        log << s << endl;
+        log.close();
+      }
+    }
 
 };
 
 //Salvar o estoque no arquivo - Metodo sobrescrito em Estoque
-void Arquivar::salvarEstoque(){
-}
+void Arquivar::salvarEstoque(){}

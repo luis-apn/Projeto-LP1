@@ -1,7 +1,7 @@
 #include "Mercado.h"
 #include "Produto.h"
 #include <string>
-//#include <sstream>
+#include <sstream>
 #include "Arquivar.h"
 #define MAX_PRODUTOS 100
 #pragma once
@@ -147,6 +147,11 @@ void Estoque::alterarProduto(){
 
       //Mudando no vetor de produtos
       p[i] = Produto(tipo, produto, qtd, preco, codigo);
+
+      //adicionar no log
+      stringstream ss;
+      ss << "Produto:" << codigo << "Para: " << tipo << ", " << produto << ", " << preco << std::endl;
+      salvarlog(ss.str());
       controle = 1;
     }
     else
@@ -168,6 +173,9 @@ void Estoque::removerProduto(){
 
       //Chamada do construtor vazio para limpar o conteudo do produto
       p[i] = Produto();
+      stringstream ss;
+      ss << "foi removido o porduto de codigo: " << codigo;
+      salvarlog(ss.str());
       controle++;
     }
     else
