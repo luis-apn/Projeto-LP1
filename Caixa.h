@@ -13,7 +13,7 @@ aberturaArquivo();
 }
 
 //carrinho de compra
-  float compra() {
+  void compra() {
     //salva antes de fazer a compra
     salvarEstoque();
     //std::ofstream log = openLog();
@@ -42,7 +42,6 @@ aberturaArquivo();
         } else {
           std::cout << "Não temos estoque suficiente para essa quantidade";
           salvarEstoque();
-          return -1; //erro
         }
       }
     }

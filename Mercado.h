@@ -17,8 +17,7 @@ public:
   void virtual removerProduto(){}
   void virtual salvarEstoque(){}
   void virtual aberturaArquivo(){}
-  float virtual compra(){}
+  void virtual compra(){}
   void virtual relatorio(){}
 
 };
-
