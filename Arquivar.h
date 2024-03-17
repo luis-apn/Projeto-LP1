@@ -1,16 +1,17 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Mercado.h"
 
 using namespace std;
 
 #pragma once
 //acho que estoque pode herdar de arquivo para poder usar os metodos na hora de inicializar o vetor
-class Arquivar{ 
+class Arquivar : public Mercado{ 
 protected:
 
 public:
-void  salvarEstoque();
+void virtual salvarEstoque();
 void relatorio();
 
 //Metodo para elaboracao do relatorio de registros dos acontececimentos no codigo
@@ -31,6 +32,7 @@ void salvarlog(std::string s){
 
 };
 
+
 //Salvar o estoque no arquivo - Metodo sobrescrito em Estoque
 void Arquivar::salvarEstoque(){}
 
@@ -41,6 +43,7 @@ void Arquivar::relatorio(){
   ifstream relatorio("log.txt");
 
   //Leitura do conteudo do relatorio e expondo
+  cout << "\n\n-----------------RELATORIO DE LOGS DO SISTEMA-----------------\n";
   if(relatorio.is_open()){
     while (!relatorio.eof()){
       getline(relatorio, linha);

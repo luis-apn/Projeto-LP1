@@ -1,14 +1,15 @@
-#include <iostream>
-#include <string>
+#include "Estoque.h"
+#include  "Produto.h"
 #include "Caixa.h"
+#include "Mercado.h"
+#include "Arquivar.h"
+
 using namespace std;
 
 #pragma once
 
-class Menu : public Caixa{
-
+class Menu{
 public:
-
   void exibir();
   
   
@@ -16,9 +17,9 @@ public:
 
 void Menu::exibir(){ 
 
-  /*Estoque *registro;
+  Mercado *registro;
+  registro = new Estoque();
   
-
   //ABRE O ARQUIVO DO ESTOQUE E INICIALIZA AS POSICOES DO VETOR DE PROTUDOS
   registro->aberturaArquivo();
 
@@ -29,9 +30,9 @@ void Menu::exibir(){
       cout << "\n-------------------SISTEMA---------------------";
       cout << "\n(1) - Cadastro de novos produtos";
       cout << "\n(2) - Listar todos os itens cadastrados";
-      //cout << "\n(3) - Exibir quantidade dos produto por nome";
-      cout << "\n(4) - Alterar produto registrado";
-      cout << "\n(5) - Remover produto";
+      cout << "\n(3) - Alterar produto registrado";
+      cout << "\n(4) - Remover produto";
+      cout << "\n(5) - Registrar venda";
       cout << "\n(6) - Exibir Relatorio";
       cout << "\n(7) - Sair";
       cout << "\nDigite a opcao desejada: ";
@@ -39,22 +40,30 @@ void Menu::exibir(){
 
       switch (op) {
         case 1: 
-          registro.cadastro();
+          registro->cadastro();
           break;
         case 2:
-          registro.listarProdutos();
+          registro->listarProdutos();
           break;    
-        case 4:
-          registro.alterarProduto();
+        case 3:
+          registro->alterarProduto();
           break; 
-        case 5:
-          registro.removerProduto();
+        case 4:
+          registro->removerProduto();
           break;
-          
-        
-      case 7: 
-        registro.salvarEstoque();
-        break;
+        case 5:
+          //Casting para usar o polimorfismo 
+          /*registro  = new Caixa();
+          registro->compra();*/
+          break;
+        case 6:
+          registro = new Arquivar();
+          registro->relatorio();
+          break;
+
+        case 7: 
+          registro->salvarEstoque();
+          break;
 
       default:
         cout << "\n\nOPCAO INVALIDA!\n";
@@ -67,4 +76,4 @@ void Menu::exibir(){
       break;
     }
   }
-*/}
+}

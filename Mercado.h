@@ -9,6 +9,16 @@ class Mercado {
 protected:
   Data data;
 public:
-  //virtual void cadastro(){}
+
+  //METODOS UTILIZADOS PARA SEREM SOBRESCRITOS DENTRO DAS SUBCLASSES
+  void virtual cadastro(){}
+  void virtual listarProdutos(){}
+  void virtual alterarProduto(){}
+  void virtual removerProduto(){}
+  void virtual salvarEstoque(){}
+  void virtual aberturaArquivo(){}
+  float virtual compra(){}
+  void virtual relatorio(){}
+
 };
 

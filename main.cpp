@@ -3,10 +3,11 @@
 #include "Caixa.h"
 #include "Mercado.h"
 #include "Arquivar.h"
+#include "Menu.h"
 
 int main() {
 
-  Estoque registro;
+  /*Estoque registro;
   Arquivar salvar;
 
   //ABRE O ARQUIVO DO ESTOQUE E INICIALIZA AS POSICOES DO VETOR DE PROTUDOS
@@ -56,6 +57,9 @@ int main() {
       cout << "\n\nFINALIZANDO...";
       break;
     }
-  }
+  }*/
+  Menu m;
+  m.exibir();
+
   return 0;
 }

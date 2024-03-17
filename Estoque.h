@@ -1,4 +1,3 @@
-#include "Mercado.h"
 #include "Produto.h"
 #include <string>
 #include <sstream>
@@ -6,7 +5,7 @@
 #define MAX_PRODUTOS 100
 #pragma once
 //adicionei Estoque herdando de arquivar para chamar os metodos com mais facilidade, apesar de estarem publicos
-class Estoque : public Mercado, public Arquivar{
+class Estoque : public Arquivar{
 protected:
   Produto p[MAX_PRODUTOS];
 
