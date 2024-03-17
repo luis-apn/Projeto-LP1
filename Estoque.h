@@ -139,7 +139,7 @@ void Estoque::listarProdutos(){
 
 }
 
-//ALTERA PRODUTOS POR CODIGO
+//ALTERA PRODUTOS POR CODIGO?
 void Estoque::alterarProduto(){
 
   int codigo, qtd, controle = 0;
@@ -179,7 +179,6 @@ void Estoque::alterarProduto(){
   if(controle == 0)
     cout << "CODIGO INSERIDO NAO POSSUI REGISTRO\n\n";
 }
-
 //REMOVE PRODUTOS INSERINDO ZERO E LIMPANDO O CONTEUDO DAS STRING
 void Estoque::removerProduto(){
   int codigo, controle=0;
@@ -218,7 +217,7 @@ void Estoque::salvarEstoque(){
     
     //Contagem de produtos cadastrados
   for(int i=0; i < MAX_PRODUTOS; i++)
-    if(p[i].getCodigo() != 0 ) 
+    if(p[i].getCodigo() != 0 )
       total++;
 
   //MANDANDO PARA O ESTOQUE O TOTAL DE PRODUTOS CADASTRADOS
@@ -239,7 +238,6 @@ void Estoque::salvarEstoque(){
 
   estoque.close();
 }
-
 //LER OS DADOS CONTIDOS NO ARQUIVO E INSERE DENTRO DAS VARIAVEIS DOS PRODUTOS
 void Estoque::aberturaArquivo(){
   ifstream abertura;
@@ -256,7 +254,7 @@ void Estoque::aberturaArquivo(){
   abertura >> total;
   abertura.ignore();
   
-  if(total > 0){ 
+  if(total > 0){
     while (!abertura.eof()){
       getline(abertura, tipo);
       getline(abertura, produto);

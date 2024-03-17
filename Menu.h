@@ -17,11 +17,11 @@ public:
 
 void Menu::exibir(){ 
 
-  Mercado *registro;
-  registro = new Estoque();
+  Mercado *registro[2];
+  registro[1] = new Estoque();
   
   //ABRE O ARQUIVO DO ESTOQUE E INICIALIZA AS POSICOES DO VETOR DE PROTUDOS
-  registro->aberturaArquivo();
+  registro[1]->aberturaArquivo();
 
   while (true) {
       int op;
@@ -40,29 +40,28 @@ void Menu::exibir(){
 
       switch (op) {
         case 1: 
-          registro->cadastro();
+          registro[1]->cadastro();
           break;
         case 2:
-          registro->listarProdutos();
+          registro[1]->listarProdutos();
           break;    
         case 3:
-          registro->alterarProduto();
+          registro[1]->alterarProduto();
           break; 
         case 4:
-          registro->removerProduto();
+          registro[1]->removerProduto();
           break;
         case 5:
-          //Casting para usar o polimorfismo 
-          /*registro  = new Caixa();
-          registro->compra();*/
+          registro[2]  = new Caixa();
+          registro[2]->compra();
           break;
         case 6:
-          registro = new Arquivar();
-          registro->relatorio();
+          registro[2] = new Arquivar();
+          registro[2]->relatorio();
           break;
 
         case 7: 
-          registro->salvarEstoque();
+          registro[1]->salvarEstoque();
           break;
 
       default:
