@@ -61,7 +61,7 @@ void Estoque::cadastro() {
       p[i] = Produto(tipo, produto, qtd, preco, codigo);
 
       stringstream ss;
-      ss << "Foi adicionado: " << "Produto :" << produto << " - Quantidade: " << qtd << " - Preco: " << preco;
+      ss << "Foi adicionado: " << "Produto: " << produto << " - Quantidade: " << qtd << " - Preco: " << preco;
       salvarlog(ss.str());
       break;
     }
