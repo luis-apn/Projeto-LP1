@@ -41,6 +41,7 @@ void Menu::exibir(){
       switch (op) {
         case 1: 
           registro[1]->cadastro();
+          registro[1]->salvarEstoque();
           break;
         case 2:
           registro[1]->listarProdutos();
@@ -54,6 +55,7 @@ void Menu::exibir(){
         case 5:
           registro[2]  = new Caixa();
           registro[2]->compra();
+          registro[1]->aberturaArquivo();
           break;
         case 6:
           registro[2] = new Arquivar();

@@ -6,7 +6,9 @@
 //caixa herda de estoque 
 class Caixa : public Estoque {
 public:
+
 Caixa(){
+
 aberturaArquivo();
 }
 
@@ -26,17 +28,20 @@ aberturaArquivo();
         
         std::cout << "Digite o numero de produtos a serem comprados: ";
         std::cin >> num;
-        std::cout << "Valor: R$ " <<(num * preco);
-        std::stringstream ss;
-        ss << "Valor: R$ " <<(num * preco);
-        salvarlog(ss.str());
+       
         if (num <= qtd) { 
+          std::cout << "Valor: R$ " <<(num * preco);
+          std::stringstream ss;
+          ss << "Valor: R$ " <<(num * preco);
+          salvarlog(ss.str());
+
           qtd -= num;
           
           p[i].setQtd(qtd);
           salvarEstoque();
         } else {
           std::cout << "Não temos estoque suficiente para essa quantidade";
+          salvarEstoque();
           return -1; //erro
         }
       }
