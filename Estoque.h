@@ -69,7 +69,7 @@ void Estoque::cadastro() {
   }
 }
 
-//Exibe todos os produtos de todos os tipos - MELHORAR A EXIBICAO DE CADA PRODUTO
+//Exibe todos os produtos de todos os tipos 
 void Estoque::listarProdutos(){
   int op, codigo, controle = 0;
   string tipo;
@@ -85,7 +85,8 @@ void Estoque::listarProdutos(){
 
         for(int i=0; i<MAX_PRODUTOS; i++){
           if(p[i].getCodigo() == codigo){ 
-            cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
+            
+            cout << "Tipo de Produto: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade em Estoque: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo de Registro: " << p[i].getCodigo() << endl << endl;
             stringstream ss;
             ss << "Foi exibido o produto: " << codigo;
             salvarlog(ss.str());
@@ -102,7 +103,7 @@ void Estoque::listarProdutos(){
       getline(cin, tipo);
       for(int i=0; i< MAX_PRODUTOS; i++){
         if(p[i].getTipo().find(tipo) != -1){ 
-          cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
+           cout << "Tipo de Produto: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade em Estoque: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo de Registro: " << p[i].getCodigo() << endl << endl;
           controle = 1;
           stringstream ss;
           ss << "Foi exibido os produto do tipo: " << tipo;
@@ -116,11 +117,10 @@ void Estoque::listarProdutos(){
     case 3:
       cout << "\n\n------------PRODUTOS CADASTRADOS------------\n";
       for(int i=0; i<MAX_PRODUTOS; i++){
-        
+
         //Exibe todos os produtos que possuem preco diferente de zero e exibe
         if(p[i].getPreco() != 0){ 
-        cout << "Tipo: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo: " << p[i].getCodigo() << endl;
-
+        cout << "Tipo de Produto: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade em Estoque: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo de Registro: " << p[i].getCodigo() << endl << endl;
         }
       }
       for (int i = 0; i < 0; i++)

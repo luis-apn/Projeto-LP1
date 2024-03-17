@@ -11,7 +11,9 @@ protected:
 
 public:
 void  salvarEstoque();
+void relatorio();
 
+//Metodo para elaboracao do relatorio de registros dos acontececimentos no codigo
 void salvarlog(std::string s){
       ofstream log;
       
@@ -31,3 +33,20 @@ void salvarlog(std::string s){
 
 //Salvar o estoque no arquivo - Metodo sobrescrito em Estoque
 void Arquivar::salvarEstoque(){}
+
+//EXIBE O TUDO QUE O
+void Arquivar::relatorio(){
+
+  string linha;
+  ifstream relatorio("log.txt");
+
+  //Leitura do conteudo do relatorio e expondo
+  if(relatorio.is_open()){
+    while (!relatorio.eof()){
+      getline(relatorio, linha);
+      cout << linha << endl;
+    }
+  }
+  else  
+    cout << "ERRO AO ABRIR O ARQUIVO\n";
+}

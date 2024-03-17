@@ -1,22 +1,35 @@
 #include <iostream>
 #include <string>
 #include "Caixa.h"
-/*using namespace std;
+using namespace std;
 
 #pragma once
 
 class Menu : public Caixa{
+
 public:
+
+  void exibir();
   
-  void interface(){
-    while (true) {
+  
+};
+
+void Menu::exibir(){ 
+
+  /*Estoque *registro;
+  
+
+  //ABRE O ARQUIVO DO ESTOQUE E INICIALIZA AS POSICOES DO VETOR DE PROTUDOS
+  registro->aberturaArquivo();
+
+  while (true) {
       int op;
       
       // Interface basica para sistema
       cout << "\n-------------------SISTEMA---------------------";
       cout << "\n(1) - Cadastro de novos produtos";
       cout << "\n(2) - Listar todos os itens cadastrados";
-      cout << "\n(3) - Exibir quantidade dos produto por nome";
+      //cout << "\n(3) - Exibir quantidade dos produto por nome";
       cout << "\n(4) - Alterar produto registrado";
       cout << "\n(5) - Remover produto";
       cout << "\n(6) - Exibir Relatorio";
@@ -26,36 +39,32 @@ public:
 
       switch (op) {
         case 1: 
-          Estoque::cadastro();
-        
+          registro.cadastro();
+          break;
         case 2:
-          std::cout << "Voce deseja lista por tipo (1), por nome(2), todos(3): ";
-          int opt;
-          std::cin >> opt;
-          switch (opt){
-            case 1:
-              int a;
-              cin >> a;
-              Estoque::listarProdutos(a);
-            
-          }   
-          std::cout << "Digite o tipo";
-           
-        case 3:
+          registro.listarProdutos();
+          break;    
+        case 4:
+          registro.alterarProduto();
+          break; 
+        case 5:
+          registro.removerProduto();
+          break;
           
+        
       case 7: 
+        registro.salvarEstoque();
         break;
 
       default:
+        cout << "\n\nOPCAO INVALIDA!\n";
         break;
-      
+      }
 
-      if (op == 7) {
-        cout << "\n\nFINALIZANDO...";
-        break;
-        }
+    //TESTE DE CONDICAO DE SAIDA
+    if (op == 7) {
+      cout << "\n\nFINALIZANDO...";
+      break;
     }
   }
-}
-};*/
-
+*/}
