@@ -168,7 +168,7 @@ void Estoque::alterarProduto(){
 
       //adicionar no log
       stringstream ss;
-      ss << "Produto:" << temp << " - Para: " << tipo << ", " << produto << ", " << preco << std::endl;
+      ss << "Produto alterado: " << temp << " - Para -> " << "tipo: "<<tipo << ", "<< "quantidade: "<< qtd <<", Produto: " << produto << ", Preco: " << preco << std::endl;
       salvarlog(ss.str());
       controle = 1;
     }
