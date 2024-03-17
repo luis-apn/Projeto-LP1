@@ -151,7 +151,7 @@ void Estoque::alterarProduto(){
   cin >> codigo;
   for(int i=0; i<MAX_PRODUTOS; i++){
     if(codigo == p[i].getCodigo()){
-
+      string temp = p[i].getProduto();
       //Recebendo os novos dados a serem alterados
       cout << "Digite o tipo do produto(limpeza, comida, bebida): ";
       cin.ignore();
@@ -168,7 +168,7 @@ void Estoque::alterarProduto(){
 
       //adicionar no log
       stringstream ss;
-      ss << "Produto:" << codigo << "Para: " << tipo << ", " << produto << ", " << preco << std::endl;
+      ss << "Produto:" << temp << " - Para: " << tipo << ", " << produto << ", " << preco << std::endl;
       salvarlog(ss.str());
       controle = 1;
     }
@@ -192,7 +192,7 @@ void Estoque::removerProduto(){
       p[i] = Produto();
       cout << "PRODUTO REMOVIDO COM SUCESSO!\n";
       stringstream ss;
-      ss << "foi removido o porduto de codigo: " << codigo;
+      ss << "foi removido o porduto: " << p[i].getProduto();
       salvarlog(ss.str());
       controle++;
     }
@@ -224,7 +224,7 @@ void Estoque::salvarEstoque(){
   estoque << total << endl;
 
   //CADASTRO DOS PRODUTOS
-  for(int i=0; i< MAX_PRODUTOS; i++){ 
+  for(int i = 0; i< MAX_PRODUTOS; i++){
     if(p[i].getCodigo() > 0){
       estoque << p[i].getTipo() << endl;
       estoque << p[i].getProduto() << endl;
