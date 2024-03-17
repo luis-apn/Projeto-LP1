@@ -16,20 +16,19 @@ void relatorio();
 
 //Metodo para elaboracao do relatorio de registros dos acontececimentos no codigo
 void salvarlog(std::string s){
-      ofstream log;
+    ofstream log;
       
-      //Abertura do arquivo para escrita 
-      log.open("log.txt", ios::app);
+    //Abertura do arquivo para escrita 
+    log.open("log.txt", ios::app);
 
-      if(!log.is_open())
-          cout << "ERRO AO ABRIR O LOG!\n";
-      else{
+    if(!log.is_open())
+        cout << "ERRO AO ABRIR O LOG!\n";
+    else{
         
-        log << s << endl;
-        log.close();
-      }
+      log << s << endl;
+      log.close();
     }
-
+  }
 };
 
 
