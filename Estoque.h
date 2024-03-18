@@ -72,14 +72,14 @@ void Estoque::cadastro() {
 void Estoque::listarProdutos(){
   int op, codigo, controle = 0;
   string tipo;
-  cout << "\n------------------EXIBIR PRODUTOS------------------\n";
+  cout << "\n\n------------------EXIBIR PRODUTOS------------------\n";
   cout << "(1) - Exibir produto por codigo\n(2) - Exibir produto por tipo\n(3) - Exibir todos os produtos\nDigite a opcao desejada: ";
   cin >> op;
   
   switch(op){
     //Exibe o produto por codigo
     case 1:
-        cout << "Digite o codigo do produto dejado: ";
+        cout << "\nDigite o codigo do produto desejado: ";
         cin >> codigo;
 
         for(int i=0; i<MAX_PRODUTOS; i++){
@@ -97,7 +97,7 @@ void Estoque::listarProdutos(){
 
         break;
     case 2:
-      cout << "Digite a classificacao do produto: ";
+      cout << "\nDigite a classificacao do produto: ";
       cin.ignore();
       getline(cin, tipo);
       for(int i=0; i< MAX_PRODUTOS; i++){
@@ -139,7 +139,7 @@ void Estoque::listarProdutos(){
 
 }
 
-//ALTERA PRODUTOS POR CODIGO?
+//ALTERA PRODUTOS POR CODIGO
 void Estoque::alterarProduto(){
 
   int codigo, qtd, controle = 0;

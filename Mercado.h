@@ -1,12 +1,11 @@
 #include <iostream>
 #include <string>
-#include "Data.h"
 
 using namespace std;
 #pragma once
 
 class Mercado {
-  
+
 public:
 
   //METODOS UTILIZADOS PARA SEREM SOBRESCRITOS DENTRO DAS SUBCLASSES

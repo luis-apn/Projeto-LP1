@@ -29,7 +29,7 @@ void Menu::exibir(){
       // Interface basica para sistema
       cout << "\n-------------------SISTEMA---------------------";
       cout << "\n(1) - Cadastro de novos produtos";
-      cout << "\n(2) - Listar todos os itens cadastrados";
+      cout << "\n(2) - Listar produtos";
       cout << "\n(3) - Alterar produto registrado";
       cout << "\n(4) - Remover produto";
       cout << "\n(5) - Registrar venda";
@@ -48,9 +48,11 @@ void Menu::exibir(){
           break;    
         case 3:
           registro[1]->alterarProduto();
+          registro[1]->salvarEstoque();
           break; 
         case 4:
           registro[1]->removerProduto();
+          registro[1]->salvarEstoque();
           break;
         case 5:
           registro[2]  = new Caixa();

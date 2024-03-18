@@ -18,7 +18,7 @@ aberturaArquivo();
     salvarEstoque();
     //std::ofstream log = openLog();
     int num;
-    std::cout << "Digite o codigo do produto: ";
+    std::cout << "\nDigite o codigo do produto: ";
     int codigo;
     std::cin >> codigo;
     for (int i = 0; i < MAX_PRODUTOS; i++){
@@ -32,7 +32,7 @@ aberturaArquivo();
         if (num <= qtd) { 
           std::cout << "Valor: R$ " <<(num * preco);
           std::stringstream ss;
-          ss << "Realizada compra de "<< num << " " << p[i].getProduto() <<" no Valor: R$ " <<(num * preco);
+          ss << "Realizada compra de "<< num << " " << p[i].getProduto() <<" no Valor: R$ " <<(num * preco) << endl;
           salvarlog(ss.str());
 
           qtd -= num;
@@ -40,7 +40,7 @@ aberturaArquivo();
           p[i].setQtd(qtd);
           salvarEstoque();
         } else {
-          std::cout << "Não temos estoque suficiente para essa quantidade";
+          std::cout << "Não temos estoque suficiente para essa quantidade\n";
           salvarEstoque();
         }
       }
