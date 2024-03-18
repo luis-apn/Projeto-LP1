@@ -93,7 +93,7 @@ void Estoque::listarProdutos(){
           }
         }
         if(controle == 0)
-          cout << "CODIGO INSERIDO NAO POSSUI REGISTRO\n\n";
+          cout << "\nCODIGO INSERIDO NAO POSSUI REGISTRO\n\n";
 
         break;
     case 2:
@@ -110,7 +110,7 @@ void Estoque::listarProdutos(){
         }
       }
       if(controle == 0)
-          cout << "CODIGO INSERIDO NAO POSSUI REGISTRO\n\n";
+          cout << "\nCODIGO INSERIDO NAO POSSUI REGISTRO\n\n";
       break;
 
     case 3:
@@ -133,7 +133,7 @@ void Estoque::listarProdutos(){
       break;
     
     default:
-      cout << "OPCAO INVALIDA!\n\n";
+      cout << "\nOPCAO INVALIDA!\n\n";
       break;
   }
 
@@ -194,7 +194,7 @@ void Estoque::removerProduto(){
       salvarlog(ss.str());
 
       p[i] = Produto();
-      cout << "PRODUTO REMOVIDO COM SUCESSO!\n";
+      cout << "\nPRODUTO REMOVIDO COM SUCESSO!\n\n";
       controle++;
     }
     else

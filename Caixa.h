@@ -32,7 +32,7 @@ aberturaArquivo();
         if (num <= qtd) { 
           std::cout << "Valor: R$ " <<(num * preco) << endl << endl;
           std::stringstream ss;
-          ss << "Realizada compra de "<< num << " " << p[i].getProduto() <<" no Valor: R$ " <<(num * preco) << endl;
+          ss << "Realizada compra de "<< num << " " << p[i].getProduto() <<" no Valor: R$ " <<(num * preco);
           salvarlog(ss.str());
 
           qtd -= num;
