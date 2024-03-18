@@ -30,7 +30,7 @@ aberturaArquivo();
         std::cin >> num;
        
         if (num <= qtd) { 
-          std::cout << "Valor: R$ " <<(num * preco);
+          std::cout << "Valor: R$ " <<(num * preco) << endl << endl;
           std::stringstream ss;
           ss << "Realizada compra de "<< num << " " << p[i].getProduto() <<" no Valor: R$ " <<(num * preco) << endl;
           salvarlog(ss.str());
@@ -40,7 +40,7 @@ aberturaArquivo();
           p[i].setQtd(qtd);
           salvarEstoque();
         } else {
-          std::cout << "Não temos estoque suficiente para essa quantidade\n";
+          std::cout << "Nao temos estoque suficiente para essa quantidade\n\n";
           salvarEstoque();
         }
       }

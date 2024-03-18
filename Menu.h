@@ -69,7 +69,7 @@ void Menu::exibir(){
           break;
 
       default:
-        cout << "\n\nOPCAO INVALIDA!\n";
+        cout << "\nOPCAO INVALIDA!\n\n";
         break;
       }
 
