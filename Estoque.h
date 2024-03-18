@@ -85,7 +85,7 @@ void Estoque::listarProdutos(){
         for(int i=0; i<MAX_PRODUTOS; i++){
           if(p[i].getCodigo() == codigo){ 
             
-            cout << "Tipo de Produto: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade em Estoque: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo de Registro: " << p[i].getCodigo() << endl << endl;
+            cout << "\nTipo de Produto: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade em Estoque: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo de Registro: " << p[i].getCodigo() << endl << endl;
             stringstream ss;
             ss << "Foi exibido o produto: " << codigo;
             salvarlog(ss.str());
@@ -102,7 +102,7 @@ void Estoque::listarProdutos(){
       getline(cin, tipo);
       for(int i=0; i< MAX_PRODUTOS; i++){
         if(p[i].getTipo().find(tipo) != -1){ 
-           cout << "Tipo de Produto: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade em Estoque: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo de Registro: " << p[i].getCodigo() << endl << endl;
+           cout << "\nTipo de Produto: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade em Estoque: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo de Registro: " << p[i].getCodigo() << endl << endl;
           controle = 1;
           stringstream ss;
           ss << "Foi exibido os produto do tipo: " << tipo;
@@ -119,7 +119,7 @@ void Estoque::listarProdutos(){
 
         //Exibe todos os produtos que possuem preco diferente de zero e exibe
         if(p[i].getPreco() != 0){ 
-        cout << "Tipo de Produto: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade em Estoque: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo de Registro: " << p[i].getCodigo() << endl << endl;
+        cout << "\nTipo de Produto: " << p[i].getTipo() << "\nProduto: " << p[i].getProduto() << "\nQuantidade em Estoque: " << p[i].getQtd() << "\nPreco: R$ " << p[i].getPreco() << "\nCodigo de Registro: " << p[i].getCodigo() << endl << endl;
         }
       }
       for (int i = 0; i < 0; i++)
@@ -189,11 +189,12 @@ void Estoque::removerProduto(){
     if(codigo == p[i].getCodigo()){   
 
       //Chamada do construtor vazio para limpar o conteudo do produto
+      stringstream ss;
+      ss << "foi removido o produto: " << p[i].getProduto() << " - " << p[i].getCodigo();
+      salvarlog(ss.str());
+
       p[i] = Produto();
       cout << "PRODUTO REMOVIDO COM SUCESSO!\n";
-      stringstream ss;
-      ss << "foi removido o porduto: " << p[i].getProduto();
-      salvarlog(ss.str());
       controle++;
     }
     else
