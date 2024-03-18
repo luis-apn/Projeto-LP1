@@ -6,8 +6,7 @@ using namespace std;
 #pragma once
 
 class Mercado {
-protected:
-  Data data;
+  
 public:
 
   //METODOS UTILIZADOS PARA SEREM SOBRESCRITOS DENTRO DAS SUBCLASSES
