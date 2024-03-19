@@ -18,10 +18,10 @@ public:
 void Menu::exibir(){ 
 
   Mercado *registro[2];
-  registro[1] = new Estoque();
+  registro[0] = new Estoque();
   
   //ABRE O ARQUIVO DO ESTOQUE E INICIALIZA AS POSICOES DO VETOR DE PROTUDOS
-  registro[1]->aberturaArquivo();
+  registro[0]->aberturaArquivo();
 
   while (true) {
       int op;
@@ -40,32 +40,32 @@ void Menu::exibir(){
 
       switch (op) {
         case 1: 
-          registro[1]->cadastro();
-          registro[1]->salvarEstoque();
+          registro[0]->cadastro();
+          registro[0]->salvarEstoque();
           break;
         case 2:
-          registro[1]->listarProdutos();
+          registro[0]->listarProdutos();
           break;    
         case 3:
-          registro[1]->alterarProduto();
-          registro[1]->salvarEstoque();
+          registro[0]->alterarProduto();
+          registro[0]->salvarEstoque();
           break; 
         case 4:
-          registro[1]->removerProduto();
-          registro[1]->salvarEstoque();
+          registro[0]->removerProduto();
+          registro[0]->salvarEstoque();
           break;
         case 5:
-          registro[2]  = new Caixa();
-          registro[2]->compra();
-          registro[1]->aberturaArquivo();
+          registro[1]  = new Caixa();
+          registro[1]->compra();
+          registro[0]->aberturaArquivo();
           break;
         case 6:
-          registro[2] = new Arquivar();
-          registro[2]->relatorio();
+          registro[1] = new Arquivar();
+          registro[1]->relatorio();
           break;
 
         case 7: 
-          registro[1]->salvarEstoque();
+          registro[0]->salvarEstoque();
           break;
 
       default:
